@@ -8,7 +8,11 @@ Install and activate this plugin. This will create a second RSS feed that shows 
 
 Go to Settings > Permalinks to refresh your permalinks. The feed will now be available at `yoursite.com/feed/excerpts`.
 
-Then, you need to redirect Bloglovin' to this new version of your feed. If using nginx, add this code to your `server` block:
+Then, you need to redirect Bloglovin' to this new version of your feed.
+
+### Nginx redirect
+
+If using nginx, add this code to your `server` block:
 
 ```
 if ( $http_user_agent ~* 'Bloglovin' ) {
@@ -19,3 +23,7 @@ if ( $http_user_agent ~* 'Bloglovin' ) {
 Replace `yoursite.com` with your own site URL.
 
 The above code is for a 302 redirect. Change `redirect` to `permanent` if you want a 301 redirect. I recommend using `redirect` at first and confirm it works before changing to a 301.
+
+### Apache redirect (htaccess)
+
+If using Apache you'll need to setup the redirect in your .htaccess file. I don't have instructions for that yet, sorry!
